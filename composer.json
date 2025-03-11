@@ -64,9 +64,11 @@
         ],
         "format:php": "vendor/bin/pint",
         "format:js": "npm run format",
+        "lint:js": "npm run lint",
         "fix": [
             "@format:php",
-            "@format:js"
+            "@format:js",
+            "@lint:js"
         ]
     },
     "extra": {

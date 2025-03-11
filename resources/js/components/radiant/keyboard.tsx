@@ -13,7 +13,7 @@ function Row(props: { children: React.ReactNode }) {
 }
 
 function Key({ name, width = 36, className, children }: { name: string; width?: number; className?: string; children?: React.ReactNode }) {
-    let { highlighted } = useContext(KeyboardContext);
+    const { highlighted } = useContext(KeyboardContext);
 
     return (
         <motion.div

@@ -31,10 +31,10 @@ export function PlusGridItem({ className = '', children }: { className?: string;
 }
 
 export function PlusGridIcon({ className = '', placement }: { className?: string; placement: `${'top' | 'bottom'} ${'right' | 'left'}` }) {
-    let [yAxis, xAxis] = placement.split(' ');
+    const [yAxis, xAxis] = placement.split(' ');
 
-    let yClass = yAxis === 'top' ? '-top-2' : '-bottom-2';
-    let xClass = xAxis === 'left' ? '-left-2' : '-right-2';
+    const yClass = yAxis === 'top' ? '-top-2' : '-bottom-2';
+    const xClass = xAxis === 'left' ? '-left-2' : '-right-2';
 
     return (
         <svg viewBox="0 0 15 15" aria-hidden="true" className={clsx(className, 'absolute size-[15px] fill-black/10', yClass, xClass)}>
