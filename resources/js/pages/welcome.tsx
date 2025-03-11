@@ -1,24 +1,24 @@
-import { type SharedData } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
-import { Gradient } from '@/components/radiant/gradient';
-import { Container } from '@/components/radiant/container';
-import { Navbar } from '@/components/radiant/navbar';
-import { ArrowBigRightIcon, StarIcon } from 'lucide-react';
-import { Button } from '@/components/radiant/button';
-import { Heading, Subheading } from '@/components/radiant/text';
-import { Screenshot } from '@/components/radiant/screenshot';
 import { BentoCard } from '@/components/radiant/bento-card';
+import { Button } from '@/components/radiant/button';
+import { Container } from '@/components/radiant/container';
+import { Footer } from '@/components/radiant/footer';
+import { Gradient } from '@/components/radiant/gradient';
 import { Keyboard } from '@/components/radiant/keyboard';
+import { LinkedAvatars } from '@/components/radiant/linked-avatars';
 import { LogoCluster } from '@/components/radiant/logo-cluster';
 import { LogoTimeline } from '@/components/radiant/logo-timeline';
-import { LinkedAvatars } from '@/components/radiant/linked-avatars';
-import { Testimonials } from '@/components/radiant/testimonials';
-import { Footer } from '@/components/radiant/footer';
 import { Map } from '@/components/radiant/map';
+import { Navbar } from '@/components/radiant/navbar';
+import { Screenshot } from '@/components/radiant/screenshot';
+import { Testimonials } from '@/components/radiant/testimonials';
+import { Heading, Subheading } from '@/components/radiant/text';
 import { cn } from '@/lib/utils';
-import React from 'react';
+import { type SharedData } from '@/types';
 import autoAnimate from '@formkit/auto-animate';
+import { Head, usePage } from '@inertiajs/react';
 import { motion } from 'framer-motion';
+import { ArrowBigRightIcon, StarIcon } from 'lucide-react';
+import React from 'react';
 
 export default function Welcome() {
     const { auth } = usePage<SharedData>().props;
@@ -51,24 +51,22 @@ function Hero() {
             <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
             <Container className="relative">
                 <Navbar
-                    // banner={
-                    // <Link
-                    //     href="/blog/radiant-raises-100m-series-a-from-tailwind-ventures"
-                    //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-fuchsia-950/30"
-                    // >
-                    //     Radiant raises $100M Series A from Tailwind Ventures
-                    //     <ChevronRightIcon className="size-4" />
-                    // </Link>
-                    // }
+                // banner={
+                // <Link
+                //     href="/blog/radiant-raises-100m-series-a-from-tailwind-ventures"
+                //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-fuchsia-950/30"
+                // >
+                //     Radiant raises $100M Series A from Tailwind Ventures
+                //     <ChevronRightIcon className="size-4" />
+                // </Link>
+                // }
                 />
                 <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
                     <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
-                        <span className={'text-brand-primary'}>Next</span><span
-                        className={'text-brand-secondary'}>Hop</span>
+                        <span className={'text-brand-primary'}>Next</span>
+                        <span className={'text-brand-secondary'}>Hop</span>
                     </h1>
-                    <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">
-                        Make the next hop in your digital life.
-                    </p>
+                    <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">Make the next hop in your digital life.</p>
                     <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
                         <Button href="#">Get started</Button>
                         <Button variant="secondary" href="/pricing">
@@ -88,40 +86,37 @@ function FeatureSection() {
                 <Heading as="h2" className="max-w-3xl">
                     A snapshot of your entire sales pipeline.
                 </Heading>
-                <Screenshot
-                    width={1216}
-                    height={768}
-                    src="/screenshots/app.png"
-                    className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem]"
-                />
+                <Screenshot width={1216} height={768} src="/screenshots/app.png" className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem]" />
             </Container>
         </div>
     );
 }
 
-function InboxItem({ from, subject, preview, className, ...props }: {
-    from: React.ReactNode,
-    subject: React.ReactNode,
-    preview: React.ReactNode
+function InboxItem({
+    from,
+    subject,
+    preview,
+    className,
+    ...props
+}: {
+    from: React.ReactNode;
+    subject: React.ReactNode;
+    preview: React.ReactNode;
 } & React.ComponentProps<'div'>) {
     return (
         <div className={cn('flex gap-2 px-3 py-2.5', className)} {...props}>
             <div>
-                <div className={'mt-1 size-4 border-[1.5px] border-gray-300 rounded'} />
+                <div className={'mt-1 size-4 rounded border-[1.5px] border-gray-300'} />
             </div>
             <div className={'flex-1'}>
-                <div className={'font-bold flex gap-2'}>
+                <div className={'flex gap-2 font-bold'}>
                     <ArrowBigRightIcon className={'text-gray-300'} />
                     {from}
                 </div>
-                <div className={'font-bold flex gap-2'}>
-                    {subject}
-                </div>
-                <div className={'text-gray-600'}>
-                    {preview}
-                </div>
+                <div className={'flex gap-2 font-bold'}>{subject}</div>
+                <div className={'text-gray-600'}>{preview}</div>
             </div>
-            <div className={'flex flex-col justify-around items-end'}>
+            <div className={'flex flex-col items-end justify-around'}>
                 <time className={'font-bold'}>12:47</time>
                 <StarIcon className={'text-gray-300'} />
             </div>
@@ -136,7 +131,7 @@ function InboxCleanup() {
         if (animatedContainer.current) {
             autoAnimate(animatedContainer.current, {
                 duration: 600,
-                easing: 'ease-out'
+                easing: 'ease-out',
             });
         }
     }, [animatedContainer]);
@@ -144,7 +139,7 @@ function InboxCleanup() {
     const [messages, setMessages] = React.useState([
         { from: 'Random Company 1', subject: 'Yet another newsletter', preview: 'When did I even sign up for this?' },
         { from: 'Random Company 2', subject: 'Yet another newsletter', preview: 'When did I even sign up for this?' },
-        { from: 'Random Company 3', subject: 'Yet another newsletter', preview: 'When did I even sign up for this?' }
+        { from: 'Random Company 3', subject: 'Yet another newsletter', preview: 'When did I even sign up for this?' },
     ]);
 
     React.useEffect(() => {
@@ -156,26 +151,22 @@ function InboxCleanup() {
     }, []);
 
     return (
-        <div className={'bg-gray-50 rounded-xl size-full px-4 py-6'}>
+        <div className={'size-full rounded-xl bg-gray-50 px-4 py-6'}>
             {messages.length === 0 ? (
-                <div className={'size-full flex justify-center items-center animate-in'}>
+                <div className={'animate-in flex size-full items-center justify-center'}>
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{
                             duration: 0.4,
-                            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 }
+                            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
                         }}
                     >
-                        <div
-                            className={'text-lg font-semibold rounded-full px-5 py-3 bg-brand-primary/80 text-white shadow'}>
-                            All tidy! 🎉
-                        </div>
+                        <div className={'bg-brand-primary/80 rounded-full px-5 py-3 text-lg font-semibold text-white shadow'}>All tidy! 🎉</div>
                     </motion.div>
                 </div>
             ) : (
-                <div ref={animatedContainer}
-                     className={cn('h-full divide-y divide-gray-100', { hidden: !animatedContainer.current })}>
+                <div ref={animatedContainer} className={cn('h-full divide-y divide-gray-100', { hidden: !animatedContainer.current })}>
                     {messages.map((message, index) => (
                         <InboxItem key={index} {...message} />
                     ))}
@@ -199,8 +190,7 @@ function BentoSection() {
                     title="Get your name out there"
                     description="A (nice) business website, visibility on Google, and a custom email address can help your business stand out."
                     graphic={
-                        <div
-                            className="h-80 bg-[url(/screenshots/profile.png)] bg-[size:1000px_560px] bg-[left_-109px_top_-112px] bg-no-repeat" />
+                        <div className="h-80 bg-[url(/screenshots/profile.png)] bg-[size:1000px_560px] bg-[left_-109px_top_-112px] bg-no-repeat" />
                     }
                     fade={['bottom']}
                     className="max-lg:rounded-t-4xl lg:col-span-3 lg:rounded-tl-4xl"
@@ -262,10 +252,7 @@ function DarkBentoSection() {
                         eyebrow="Networking"
                         title="Sell at the speed of light"
                         description="Our RadiantAI chat assistants analyze the sentiment of your conversations in real time, ensuring you're always one step ahead."
-                        graphic={
-                            <div
-                                className="h-80 bg-[url(/screenshots/networking.png)] bg-[size:851px_344px] bg-no-repeat" />
-                        }
+                        graphic={<div className="h-80 bg-[url(/screenshots/networking.png)] bg-[size:851px_344px] bg-no-repeat" />}
                         fade={['top']}
                         className="max-lg:rounded-t-4xl lg:col-span-4 lg:rounded-tl-4xl"
                     />
@@ -291,10 +278,7 @@ function DarkBentoSection() {
                         eyebrow="Engagement"
                         title="Become a thought leader"
                         description="RadiantAI automatically writes LinkedIn posts that relate current events to B2B sales, helping you build a reputation as a thought leader."
-                        graphic={
-                            <div
-                                className="h-80 bg-[url(/screenshots/engagement.png)] bg-[size:851px_344px] bg-no-repeat" />
-                        }
+                        graphic={<div className="h-80 bg-[url(/screenshots/engagement.png)] bg-[size:851px_344px] bg-no-repeat" />}
                         fade={['top']}
                         className="max-lg:rounded-b-4xl lg:col-span-4 lg:rounded-br-4xl"
                     />
