@@ -1,8 +1,8 @@
 'use client'
 
-import { CheckIcon } from '@heroicons/react/16/solid'
 import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
+import { CheckIcon } from 'lucide-react';
 
 const transition = {
   duration: 0.75,

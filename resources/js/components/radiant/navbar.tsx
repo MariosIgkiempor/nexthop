@@ -5,11 +5,11 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
-import { Bars2Icon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
 import { Link } from './link'
 import { Logo } from './logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
+import { MenuIcon } from 'lucide-react';
 
 const links = [
   { href: '/pricing', label: 'Pricing' },
@@ -41,7 +41,7 @@ function MobileNavButton() {
       className="flex size-12 items-center justify-center self-center rounded-lg data-hover:bg-black/5 lg:hidden"
       aria-label="Open main menu"
     >
-      <Bars2Icon className="size-6" />
+      <MenuIcon className="size-6" />
     </DisclosureButton>
   )
 }
