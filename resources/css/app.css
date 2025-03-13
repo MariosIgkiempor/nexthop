@@ -18,6 +18,8 @@
 
     --color-brand-primary: var(--brand-primary);
     --color-brand-secondary: var(--brand-secondary);
+    --color-brand-accent-primary: var(--brand-accent-primary);
+    --color-brand-accent-secondary: var(--brand-accent-secondary);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -82,8 +84,10 @@
 }
 
 :root {
-    --brand-primary: oklch(0.486 0.252 264.85);
-    --brand-secondary: oklch(0.89 0.125 86.362);
+    --brand-primary: oklch(0.66 0.301 325.531);
+    --brand-secondary: oklch(0.624 0.164 271.494);
+    --brand-accent-primary: #FC3832;
+    --brand-accent-secondary: #1C0FD7;
 
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -161,7 +165,27 @@
     }
 
     body {
-        @apply bg-background text-foreground;
+        @apply text-foreground;
+    }
+
+    @media(max-width:1520px) {
+        .left-svg {
+            display: none;
+        }
+    }
+
+    /* small css for the mobile nav close */
+    #nav-mobile-btn.close span:first-child {
+        transform: rotate(45deg);
+        top: 4px;
+        position: relative;
+        background: #a0aec0;
+    }
+
+    #nav-mobile-btn.close span:nth-child(2) {
+        transform: rotate(-45deg);
+        margin-top: 0px;
+        background: #a0aec0;
     }
 }
 
